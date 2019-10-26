@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><Model xmlns:n1="org.polariscode.plugin.web.springboot.model" Description="">
+<View>
+<Controls>
+<n1:Entity Height="240" Name="Result" Width="160" X="67" Y="46">
+<Fields>
+<n1:Field Collections="false" Name="Code" ObjectName="Integer" Required="false" Type="Integer"/>
+<n1:Field Collections="false" Name="Msg" ObjectName="String" Required="false" Type="String"/>
+<n1:Field Collections="false" Name="Token" ObjectName="String" Required="false" Type="String"/>
+<n1:Field Collections="false" Name="Data" ObjectName="Object" Required="false" Type="Object"/>
+<n1:Field Collections="false" Name="PageNumber" ObjectName="Integer" Required="false" Type="Integer"/>
+<n1:Field Collections="false" Name="PageSize" ObjectName="Integer" Required="false" Type="Integer"/>
+<n1:Field Collections="false" Name="RecordCount" ObjectName="Integer" Required="false" Type="Integer"/>
+</Fields>
+</n1:Entity>
+<n1:Entity Height="240" Name="Excel" Width="160" X="521" Y="41">
+<Fields>
+<n1:Field Collections="false" Name="A" ObjectName="String" Required="false" Type="String"/>
+<n1:Field Collections="false" Name="B" ObjectName="String" Required="false" Type="String"/>
+<n1:Field Collections="false" Name="C" ObjectName="String" Required="false" Type="String"/>
+<n1:Field Collections="false" Name="D" ObjectName="String" Required="false" Type="String"/>
+<n1:Field Collections="false" Name="E" ObjectName="String" Required="false" Type="String"/>
+<n1:Field Collections="false" Name="F" ObjectName="String" Required="false" Type="String"/>
+<n1:Field Collections="false" Name="G" ObjectName="String" Required="false" Type="String"/>
+<n1:Field Collections="false" Name="H" ObjectName="String" Required="false" Type="String"/>
+<n1:Field Collections="false" Name="I" ObjectName="String" Required="false" Type="String"/>
+<n1:Field Collections="false" Name="J" ObjectName="String" Required="false" Type="String"/>
+<n1:Field Collections="false" Name="K" ObjectName="String" Required="false" Type="String"/>
+<n1:Field Collections="false" Name="L" ObjectName="String" Required="false" Type="String"/>
+<n1:Field Collections="false" Name="M" ObjectName="String" Required="false" Type="String"/>
+<n1:Field Collections="false" Name="N" ObjectName="String" Required="false" Type="String"/>
+<n1:Field Collections="false" Name="O" ObjectName="String" Required="false" Type="String"/>
+<n1:Field Collections="false" Name="P" ObjectName="String" Required="false" Type="String"/>
+<n1:Field Collections="false" Name="Q" ObjectName="String" Required="false" Type="String"/>
+<n1:Field Collections="false" Name="R" ObjectName="String" Required="false" Type="String"/>
+<n1:Field Collections="false" Name="S" ObjectName="String" Required="false" Type="String"/>
+<n1:Field Collections="false" Name="T" ObjectName="String" Required="false" Type="String"/>
+<n1:Field Collections="false" Name="U" ObjectName="String" Required="false" Type="String"/>
+<n1:Field Collections="false" Name="V" ObjectName="String" Required="false" Type="String"/>
+<n1:Field Collections="false" Name="W" ObjectName="String" Required="false" Type="String"/>
+<n1:Field Collections="false" Name="X" ObjectName="String" Required="false" Type="String"/>
+<n1:Field Collections="false" Name="Y" ObjectName="String" Required="false" Type="String"/>
+<n1:Field Collections="false" Name="Z" ObjectName="String" Required="false" Type="String"/>
+</Fields>
+</n1:Entity>
+</Controls>
+</View>
+</Model>

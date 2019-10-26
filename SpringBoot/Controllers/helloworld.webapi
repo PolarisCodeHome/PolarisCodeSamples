@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><WebAPI xmlns:n1="org.polariscode.plugin.web.springboot.action" xmlns:n2="org.polariscode.plugin.web.springboot.model" Description="" Transactional="false" Type="Post" VerifyToken="false">
+<View>
+<Controls>
+<n1:Begin>
+<Parameters/>
+</n1:Begin>
+<n1:Variable>
+<n2:Field Collections="false" DefaultValue="&quot;HelloWorld!&quot;" Name="result" ObjectName="String" Required="false" Type="String"/>
+</n1:Variable>
+<n1:End Result="result"/>
+</Controls>
+</View>
+</WebAPI>

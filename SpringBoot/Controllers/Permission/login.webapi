@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><WebAPI xmlns:n1="org.polariscode.plugin.web.springboot.action" xmlns:n2="org.polariscode.plugin.web.springboot.model" xmlns:n3="org.polariscode.plugin.web.springboot.action.jwt" Description="" Transactional="false" Type="Post" VerifyToken="false">
+<View>
+<Controls>
+<n1:Begin Name="Begin1">
+<Parameters>
+<n2:Field Collections="false" Name="LoginName" ObjectName="String" Required="false" Type="String"/>
+<n2:Field Collections="false" Name="Password" ObjectName="String" Required="false" Type="String"/>
+</Parameters>
+</n1:Begin>
+<n1:Variable Name="Variable1">
+<n2:Field Collections="false" Name="result" ObjectName="Result" Required="false" Type="Object"/>
+</n1:Variable>
+<n3:GenerateToken Name="GenerateToken1" Value="LoginName" Variable="result.Token"/>
+<n1:Assign Name="Assign1" Value="LoginName" Variable="result.Data"/>
+<n1:End Name="End1" Result="result"/>
+</Controls>
+</View>
+</WebAPI>

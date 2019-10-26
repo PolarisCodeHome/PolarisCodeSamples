@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link href="../wwwroot/css/apptheme.css" rel="stylesheet" />
+	<link href="../wwwroot/css/site.min.css" rel="stylesheet" />
+	<link href="../wwwroot/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+	<link href="../wwwroot/lib/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+	<link href="../wwwroot/lib/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet" />
+	<link href="../wwwroot/lib/layui/css/layui.css" rel="stylesheet" />
+
+	<script src="../wwwroot/lib/vue/vue.js"></script>
+	<script src="../wwwroot/lib/layui/layui.js"></script>
+	<script src="../wwwroot/lib/jquery/dist/jquery.js"></script>
+	<script src="../wwwroot/lib/bootstrap/dist/js/bootstrap.js"></script>
+	<script src="../wwwroot/lib/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+	<script src="../wwwroot/lib/bootstrap-select/js/bootstrap-select.min.js"></script>
+	<script src="../wwwroot/js/site.js"></script>
+	<style type="text/css">
+		* {
+			margin: 0px;
+			padding: 0px;
+		}
+
+		#table {
+			margin: 0px auto;
+			text-align-last: center;
+		}
+
+		#btn {
+			margin-top: 30px;
+			margin-bottom: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div id="filter1" style="width: 94%; margin-left: 3%; margin-top:20px;">
+		<button type="button" class="layui-btn layui-btn-sm layui-btn-primary" id="uploadfile">
+			<i class="layui-icon">&#xe67c;</i>上传Excel文件
+		</button>
+	</div>
+	<div id="app" style="width: 94%; margin-left: 3%; margin-top:10px;">
+		<table id="table1" lay-filter="table1filter"></table>
+		<div id="page1"></div>
+	</div>
+</body>
+</html>
+<script type="text/html" id="add">
+	<div class="layui-btn-group">
+	</div>
+</script>
+	
+<script src="../wwwroot/js/App.js"></script>
+<script>
+	layui.use('upload', function(){
+		var upload = layui.upload;
+   		var uploadInst = upload.render({
+			elem: '#uploadfile' //绑定元素
+			,accept: 'file'
+			,exts: 'xls|xlsx'
+			,url: '/File/excel' //上传接口
+			,data:{
+				type: 'Demo',
+				token: window.sessionStorage.getItem("token")
+			}
+			,before: function(obj){
+				obj.preview(function(index, file, result){
+				});
+			}
+			,done: function(result){
+				alert("上传成功!");
+				list = result.data;
+				recordCount = result.recordCount;
+				bindData();
+			}
+			,error: function(){
+				alert("上传失败");
+			}
+		});
+	});
+</script>
+<script>
+	var vm = new Vue({
+		el: "#filter1",
+		data: {
+
+		},
+		methods: {}
+	})
+	var pageNumber = 1;
+	var pageSize = 10;
+	var recordCount = 0;
+	var list = [];
+
+	bindData();
+
+	function bindData(){
+		layui.use(['table', 'laypage'], function(){
+			var table = layui.table;
+			table.render({
+				elem: '#table1',
+				toolbar:'#add',
+				data: list, //数据接口
+				even: true, //隔行显示
+				cols: [[ //表头
+					{field:'a', title:'A', align:'left', width:'200'},
+					{field:'b', title:'B', align:'left', width:'200'},
+					{field:'c', title:'C', align:'left', width:'200'},
+					{field:'d', title:'D', align:'left', width:'200'},
+					{field:'e', title:'E', align:'left', width:'200'},
+					{field:'f', title:'F', align:'left', width:'200'},
+					{field:'g', title:'G', align:'left', width:'200'},
+					{field:'h', title:'H', align:'left', width:'200'},
+					{field:'i', title:'I', align:'left', width:'200'},
+					{field:'j', title:'J', align:'left', width:'200'},
+					{field:'k', title:'K', align:'left', width:'200'},
+					{field:'l', title:'L', align:'left', width:'200'},
+					{field:'m', title:'M', align:'left', width:'200'},
+					{field:'n', title:'N', align:'left', width:'200'},
+					{field:'o', title:'O', align:'left', width:'200'},
+					{field:'p', title:'P', align:'left', width:'200'},
+					{field:'q', title:'Q', align:'left', width:'200'},
+					{field:'r', title:'R', align:'left', width:'200'},
+					{field:'s', title:'S', align:'left', width:'200'},
+					{field:'t', title:'T', align:'left', width:'200'},
+					{field:'u', title:'U', align:'left', width:'200'},
+					{field:'v', title:'V', align:'left', width:'200'},
+					{field:'w', title:'W', align:'left', width:'200'},
+					{field:'x', title:'X', align:'left', width:'200'},
+					{field:'y', title:'Y', align:'left', width:'200'},
+					{field:'z', title:'Z', align:'left', width:'200'}
+				]]
+			});
+
+			
+		});
+	}
+	
+
+
+</script>

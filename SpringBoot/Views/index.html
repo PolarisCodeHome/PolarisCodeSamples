@@ -1,0 +1,351 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title> Polaris Code</title>
+
+	<!--通用css-->
+	<link href="wwwroot/css/site.min.css" rel="stylesheet" />
+	<link href="wwwroot/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+	<link href="wwwroot/lib/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+	<link href="wwwroot/lib/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet" />
+	<link href="wwwroot/lib/layui/css/layui.css" rel="stylesheet" />
+
+	<!--通用js-->
+	<script src="wwwroot/lib/vue/vue.js"></script>
+	<script src="wwwroot/lib/layui/layui.js"></script>
+	<script src="wwwroot/lib/jquery/dist/jquery.js"></script>
+	<script src="wwwroot/lib/bootstrap/dist/js/bootstrap.js"></script>
+	<script src="wwwroot/lib/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+	<script src="wwwroot/lib/bootstrap-select/js/bootstrap-select.min.js"></script>
+	<script src="wwwroot/js/site.js"></script>
+
+	<link href="https://cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href="https://cdn.bootcss.com/jquery.scrollbar/0.2.11/jquery.scrollbar.min.css" rel="stylesheet">
+	<link href="wwwroot/lib/nav/css/nav.css" rel="stylesheet" />
+	<link href="wwwroot/lib/nav/font/iconfont.css" rel="stylesheet" />
+	<link href="wwwroot/lib/nth-tabs/css/nth-icons.min.css" rel="stylesheet" />
+	<link href="wwwroot/lib/nth-tabs/css/nth-tabs.min.css" rel="stylesheet" />
+
+	<style type="text/css">
+		html,
+		body {
+			padding: 0;
+			margin: 0;
+			height: 100%;
+		}
+       
+		.wrapper {
+			padding-top: 10px;
+			height: calc(100% - 220px);
+		}
+
+		.page-wrapper {
+			overflow: hidden;
+			height: 50%;
+		}
+
+		.rightbox {
+			width: 100%;
+		}
+
+		.layui-layer-tab >.layui-layer-content {
+			width: 100%;
+			height: 100%!important;
+		}
+ 
+		.layui-layer-tabmain {
+			width: 100%;
+			height: 100%;
+		}
+
+		.layui-layer-tabli {
+			width: 100%;
+			height: 100%;
+		}
+
+		.layui-layer-page .layui-layer-content {
+			overflow:hidden !important;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="navbar navbar-inverse navbar-fixed-top ">
+		<ul class="navx col-xs-4" style="height:50px;padding:0px">
+			<li class="navx-item">
+				<a id="mini" style="text-decoration: none;cursor:pointer"><i class="glyphicon glyphicon-th-list"></i><span>Polaris Code</span></a>
+			</li>
+		</ul>
+		<div class="container"  style="width:90%">
+			<div class="navbar-header">
+				<!--bootstrap的动态菜单栏  data-toggle="collapse"折叠    data-target=".navbar-collapse" 让这个css样式填充他的-->
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="navbar-collapse collapse" data-toggle="collapse" data-target=".navbar-collapsef">
+				<ul style="float:left; " class="col-lg-1 nav navbar-nav">
+					<li>
+						<a onclick="TabRefresh()"><span class="layui-icon layui-icon-refresh" style="cursor:pointer"></span></a> <!--刷新控制-->
+					</li>
+				</ul>
+				<ul style="float:right; " class="col-lg-1 nav navbar-nav">
+					<li>
+						<a onclick="AppExit()"><span class="glyphicon glyphicon-off">关闭</span></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div style="padding-top:50px;height:100%;">
+		<div class="navx col-xs-4" style=" padding: 0px;padding-top:0px;" id="app">
+		</div>
+		<div class="container body-content rightbox" style="height: 100%; padding: 0px;">
+			<div class="page-wrapper" style="height: 100%;">
+				<!--使用时只需此标签，class固定,id自己定义-->
+				<div class="nth-tabs" style="height: 100%;" id="main-tabs">
+				</div>
+				<hr />
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+
+<script src="https://cdn.bootcss.com/jquery.scrollbar/0.2.11/jquery.scrollbar.min.js"></script>
+<script src="wwwroot/lib/nth-tabs/js/nth-tabs.js"></script>
+<script src="wwwroot/lib/nav/js/nav.js"></script>
+<script src="wwwroot/js/App.js"></script>
+<script type="text/javascript">
+
+	AppToken();//验证Token是否有效
+	
+	//刷新
+	function TabRefresh() {
+		nthTabs.Refresh();
+	}
+
+	var layer;
+
+	layui.use('layer', function () {
+		layer = layui.layer;
+	});
+
+	$(function () {
+		//注册刷新控制
+		/*GetTrigger([{
+			id: 0,
+			keys: 'Menu',
+			funs: function () {
+				getMenus();
+			}
+		}]);*/
+		getMenus();
+	});
+
+	function getMenus() {
+		addmenu(menus);
+	}
+
+	/**
+	* 动态生成菜单列表
+	* @param ms 菜单数据实体
+	*/
+	function addmenu(ms) {
+		var htmls = "<ul>";
+		for (let i = 0; i < ms.length; i++) {
+			var html = addchildmenu(ms[i].children, 0);
+			if (html == "") {
+				htmls += "<li class='n1'>" +
+						"<a href='javascript:;' title='" + ms[i].floatPrompt + "' ><i class='" + ms[i].icon + "'></i><span onclick=\"tabhtml(" + ms[i].id + ",'" + 
+						ms[i].name + "','" + ms[i].url + "'," + ms[i].openby + "," + ms[i].tabType+ ")\">" + ms[i].name + "</span></a>" + "</li>";
+			} else {
+				htmls += "<li class='navx-item'>" + "<a href='javascript:;'title='" + ms[i].floatPrompt + "' class='navx-show' ><i class='" + 
+						ms[i].icon + "'></i><span onclick=\"tabhtml(" + ms[i].id + ",'" + ms[i].name + "','" + ms[i].url + "'," + ms[i].openby + "," + 
+						ms[i].tabType + " )\">" + ms[i].name + "</span><i class='navx-show my-icon navx-more'></i></a>" + html + "</li>";
+			}
+		}
+		htmls += "</ul>";
+		$("#app").html(htmls);
+		navxcz();
+	};
+	function addchildmenu(ms, v) {
+		if(ms==null || ms.length==0){
+			return "";
+		}
+		var n = v + 1;
+		var htmls = "<ul class='n" + n + "'>";
+		for (let i = 0; i < ms.length; i++) {
+			var html = addchildmenu(ms[i].children, n);
+			if (html == "") {
+				htmls += "<li class='n" + n + "'>" +
+					"<a href='javascript:;' title='" + ms[i].floatPrompt + "' ><i class='" + ms[i].icon + "'></i><span onclick=\"tabhtml(" + ms[i].id + ",'" + 
+					ms[i].name + "','" + ms[i].url + "'," + ms[i].openby + "," + ms[i].tabType + ")\">" + ms[i].name + "</span></a>" + "</li>";
+			} else {
+				htmls += "<li class='navx-item" + n + " n" + n + "'>" +
+					"<a href='javascript:;'title='" + ms[i].floatPrompt + "' class='navx-show' ><i class='" + ms[i].icon + "'></i><span onclick=\"tabhtml(" + ms[i].id + ",'" + 
+					ms[i].name + "','" + ms[i].url + "'," + ms[i].openby + "," + ms[i].tabType + ")\">" + ms[i].name + "</span><i class='my-icon navx-more'></i></a>" +
+					html + "</li>";
+			}	
+		}
+		htmls += "</ul>";
+		return htmls;
+	};
+
+	//页面tab页构造体
+	var nthTabs;
+	nthTabs = $("#main-tabs").nthTabs();//初始化
+	var menus = [{
+		"id": '0',
+		"url": "/home.html",
+		"icon": "glyphicon glyphicon-home",
+		"isdelete": false,
+		"tabType": 0,
+		"describes": "",
+		"sequence": '',
+		"pid": 0,
+		"name": "首页",
+		"floatPrompt": "",
+		"openby": 0,
+		children:[]
+		},
+		{
+		"id": '9',
+		"url": "",
+		"icon": "glyphicon glyphicon-folder-open",
+		"isdelete": false,
+		"tabType": 0,
+		"describes": "",
+		"sequence": '',
+		"pid": 0,
+		"name": "文件",
+		"floatPrompt": "",
+		"openby": 0,
+		children:[
+			{
+			"id": '93',
+			"url": "/Views/excel.html",
+			"icon": "",
+			"isdelete": false,
+			"tabType": 0,
+			"describes": "",
+			"sequence": '',
+			"pid": 0,
+			"name": "Excel解析",
+			"floatPrompt": "",
+			"openby": 0,
+			}]
+		}];
+	
+	/** 页面实体 */
+	var msg = {
+		describes: "",//描述
+		floatPrompt: "",//浮动提示
+		icon: "",//图标
+		id: 0,
+		isdelete: false,//是否删除
+		name: "",//节点名称
+		openby: 0,//打开方式
+		pid: 0,//父类id
+		sequence: 0,//排序
+		tabType: 0,//打开方式
+		url: ""//跳转链接
+	};
+
+	//判断构造机制
+	function tabhtml(id, name, url, openby, tabType) {
+		if (url != null && url != "") {
+			if (openby == 0) {
+				addtabs(id, name, url, tabType);//Tab构建方法
+			} else if (openby == 1) {
+				addiframes(name, url);//iframe页构建方法
+			}
+		}
+	};
+
+	// iframe页构建函数
+	function addiframes(titles, urls) {
+		layer.open({
+			type: 2, //iframe弹框
+			title: titles,//标题
+			fix: true,//是否固定
+			maxmin: true,   //最大化
+			btnAlign: 'r', //绑定到需要触发的地方
+			shadeClose: false,//是否点击关闭遮罩
+			shade: 0,//遮罩
+			area: ['800px', '500px'],//宽高
+			content: urls   //内容
+		});
+	};
+
+	// tab页构建函数
+	var i = 0;
+	function addtabs(id, titles, urls, tabtype) {
+		if (tabtype == 0) {
+			var tid = "T-" + id;
+			nthTabs.addTab({
+				id: tid,
+				title: titles,
+				url: urls,
+				active: true,
+				allowClose: true,
+				location: false,
+				fadeIn: true
+			});
+		} else {
+			var tid = "T-" + id + "-" + i;
+			nthTabs.addTab({
+				id: tid,
+				title: titles,
+				url: urls,
+				active: true,
+				allowClose: true,
+				location: false,
+				fadeIn: true
+			});
+			i++;
+		}
+	};
+
+	nthTabs.addTab({
+		id: "T-1",
+		title: '首页',
+		url: "/home.html",
+		active: true,
+		allowClose: true,
+		location: false,
+		fadeIn: true
+	});
+
+	$("#Href_caidan").on("click", function () {
+		nthTabs.addTab({   //添加一个选项卡
+			id: "yhId",
+			title: '菜单',
+			url: "Views/Permission/MenuView.html",
+			active: true,
+			allowClose: true,
+			location: false,
+			fadeIn: true
+		});
+	});
+
+	//菜单栏的转换  图标
+	$('#mini').on('click', function () {
+		if (!$('.navx').hasClass('navx-mini')) //检测.navx这个类是否包含navx-mini这个类 在这里双重否定表肯定  也就是说没有包含这个类
+		{
+			$('.navx-item.navx-show').removeClass('navx-show');
+			$('.navx-item').children('ul').removeAttr('style'); //从navx-item中移除style样式
+			$('.navx').addClass('navx-mini');
+		}
+		else
+		{
+			$('.navx').removeClass('navx-mini');
+		}
+	});
+
+</script>
