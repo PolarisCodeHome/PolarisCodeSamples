@@ -69,13 +69,17 @@
 				});
 			}
 			,done: function(result){
-				alert("上传成功!");
-				list = result.data;
-				recordCount = result.recordCount;
-				bindData();
+				if(result.code == 0){
+					alert("上传成功!");
+					list = result.data;
+					recordCount = result.recordCount;
+					bindData();
+				}else{
+					alert("上传失败, 原因："+result.msg);
+				}
 			}
-			,error: function(){
-				alert("上传失败");
+			,error: function(err){
+				alert("上传失败, 原因："+err.responseJSON.message);
 			}
 		});
 	});
