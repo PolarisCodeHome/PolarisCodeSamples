@@ -7,13 +7,25 @@
 <n1:Variable Name="Variable1">
 <n2:Field Collections="false" Name="result" ObjectName="Result" Required="false" Type="Object"/>
 </n1:Variable>
-<n1:DataAccess ContinueOnError="false" Dao="UserMapper.getUser" ErrorCode="result.Code" ErrorMessage="result.Msg" Name="DataAccess1" Variable="result.Data">
+<n1:DataAccess ContinueOnError="true" Dao="UserMapper.getUser" ErrorCode="result.Code" ErrorMessage="result.Msg" Name="DataAccess1" Variable="result.Data">
 <Parameters/>
 </n1:DataAccess>
-<n1:Decide Name="Decide1">
-<Controls/>
+<n1:Decide Expression="result.getCode() == 0" Name="Decide1">
+<Controls>
+<n1:DataAccess ContinueOnError="false" Dao="UserMapper.createUser" ErrorCode="result.Code" ErrorMessage="result.Msg" Name="DataAccess2"/>
+<n1:Assign Name="Assign1" Value="0" Variable="result.Code"/>
+<n1:DataAccess ContinueOnError="false" Dao="UserMapper.getUser" ErrorCode="result.Code" ErrorMessage="result.Msg" Name="DataAccess3" Variable="result.Data"/>
+</Controls>
 <if/>
-<else/>
+<else>
+<n1:DataAccess ContinueOnError="false" Dao="UserMapper.createUser" ErrorCode="result.Code" ErrorMessage="result.Msg" Name="DataAccess2">
+<Parameters/>
+</n1:DataAccess>
+<n1:Assign Name="Assign1" Value="0" Variable="result.Code"/>
+<n1:DataAccess ContinueOnError="false" Dao="UserMapper.getUser" ErrorCode="result.Code" ErrorMessage="result.Msg" Name="DataAccess3" Variable="result.Data">
+<Parameters/>
+</n1:DataAccess>
+</else>
 </n1:Decide>
 <n1:End Name="End1" Result="result"/>
 </Controls>

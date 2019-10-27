@@ -1,13 +1,32 @@
-<?xml version="1.0" encoding="UTF-8"?><Mapper xmlns:n1="org.polariscode.plugin.web.springboot.mapper" Database="DB" Description="">
+<?xml version="1.0" encoding="UTF-8"?><Mapper xmlns:n1="org.polariscode.plugin.web.springboot.mapper" xmlns:n2="org.polariscode.plugin.web.springboot.model" Database="DB" Description="">
 <View>
 <Controls>
-<n1:Update Height="24" Name="createUser" SQL="Create Table User(&#10;   ID INTEGER  PRIMARY KEY   AUTOINCREMENT  NOT NULL,&#10;   Name TEXT NOT NULL,&#10;   Password TEXT,&#10;   BirthDay Date ,&#10;   Gender INTEGER NOT NULL,&#10;   ADDRESS        CHAR(50),&#10;   Phone TEXT,&#10;   Email TEXT,&#10;   Wchat TEXT,&#10;   QQ TEXT,&#10;   Photo   TEXT&#10;);" Width="160" X="95" Y="110">
+<n1:Update Height="24" Name="createUser" SQL="Create Table User(&#10;   ID INTEGER  PRIMARY KEY   AUTOINCREMENT  NOT NULL,&#10;   Name TEXT NOT NULL,&#10;   Password TEXT,&#10;   BirthDay Date ,&#10;   Gender INTEGER NOT NULL,&#10;   ADDRESS        CHAR(50),&#10;   Phone TEXT,&#10;   Email TEXT,&#10;   Wchat TEXT,&#10;   QQ TEXT,&#10;   Photo   TEXT,&#10;   File1  TEXT&#10;);" Width="160" X="95" Y="110">
 <Parameters/>
 <Rules/>
 </n1:Update>
 <n1:Select Height="299" MapperEntity="User" Name="getUser" SQL="Select * From User" SelectType="Collections" Width="160" X="335" Y="111">
 <ResultSet/>
 <Parameters/>
+<Rules/>
+</n1:Select>
+<n1:Insert Height="24" Name="InsertUser" SQL="Insert Into User (Name, Birthday, Gender, Address, Phone, Wchat, QQ, Photo, File1)&#10;Values ( #{user.Name}, #{user.Birthday}, #{user.Gender}, #{user.Address}, #{user.Phone}, #{user.Wchat}, #{user.QQ}, #{user.Photo}, #{user.File1} )" Width="160" X="560" Y="116">
+<Parameters>
+<n2:Field Collections="false" Name="user" ObjectName="User" Required="false" Type="Object"/>
+</Parameters>
+<Rules/>
+</n1:Insert>
+<n1:Update Height="24" Name="UpdateUser" SQL="Update User set  Name = #{user.Name},&#10;&#9;Birthday = #{user.Birthday},&#10;&#9;Gender = #{user.Gender},&#10;&#9;Address = #{user.Address},&#10;&#9;Phone = #{user.Phone},&#10;&#9;Wchat = #{user.Wchat},&#10;&#9;QQ = #{user.QQ},&#10;&#9;Photo = #{user.Photo},&#10;&#9;File1 = #{user.File1}&#10;Where ID = #{user.ID}" Width="160" X="559" Y="166">
+<Parameters>
+<n2:Field Collections="false" Name="user" ObjectName="User" Required="false" Type="Object"/>
+</Parameters>
+<Rules/>
+</n1:Update>
+<n1:Select Height="240" MapperEntity="User" Name="getUserById" SQL="Select * From User Where ID = #{id}" SelectType="Singleton" Width="160" X="567" Y="282">
+<ResultSet/>
+<Parameters>
+<n2:Field Collections="false" Name="id" ObjectName="Integer" Required="false" Type="Integer"/>
+</Parameters>
 <Rules/>
 </n1:Select>
 </Controls>

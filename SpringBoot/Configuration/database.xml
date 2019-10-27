@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><Databases>
 <Database Name="DB" Type="SQLite">
 <Items>
-<Debug Password="" Url="jdbc:sqlite:example.db" Username=""/>
+<Debug Password="" Url="jdbc:sqlite:../../example.db" Username=""/>
 <Release Password="" Url="jdbc:sqlite:example.db" Username=""/>
 </Items>
 </Database>

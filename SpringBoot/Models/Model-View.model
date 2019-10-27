@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><Model xmlns:n1="org.polariscode.plugin.web.springboot.model" Description="">
 <View>
 <Controls>
-<n1:Entity Height="240" Name="Result" Width="160" X="67" Y="46">
+<n1:Entity Height="240" Name="Result" Width="160" X="67" Y="45">
 <Fields>
 <n1:Field Collections="false" Name="Code" ObjectName="Integer" Required="false" Type="Integer"/>
 <n1:Field Collections="false" Name="Msg" ObjectName="String" Required="false" Type="String"/>
@@ -42,18 +42,19 @@
 <n1:Field Collections="false" Name="Z" ObjectName="String" Required="false" Type="String"/>
 </Fields>
 </n1:Entity>
-<n1:Entity Height="284" Name="User" Width="160" X="517" Y="37">
+<n1:Entity Height="284" Name="User" Width="160" X="511" Y="44">
 <Fields>
 <n1:Field Collections="false" Name="ID" ObjectName="Integer" Required="false" Type="Integer"/>
-<n1:Field Collections="false" Name="Name" ObjectName="String" Required="true" Type="String"/>
-<n1:Field Collections="false" Name="Password" ObjectName="String" Required="false" Type="String"/>
-<n1:Field Collections="false" Name="Birthday" ObjectName="DateTime" Required="false" Type="DateTime"/>
-<n1:Field Collections="false" Name="Gender" ObjectName="Integer" Required="false" Type="Integer"/>
-<n1:Field Collections="false" Name="Address" ObjectName="String" Required="false" Type="String"/>
-<n1:Field Collections="false" Name="Phone" ObjectName="String" Required="false" Type="String"/>
-<n1:Field Collections="false" Name="Wchat" ObjectName="String" Required="false" Type="String"/>
-<n1:Field Collections="false" Name="QQ" ObjectName="String" Required="false" Type="String"/>
-<n1:Field Collections="false" Name="Photo" ObjectName="String" Required="false" Type="String"/>
+<n1:Field Collections="false" Description="姓名" Name="Name" ObjectName="String" Required="true" Type="String"/>
+<n1:Field Collections="false" Description="密码" Name="Password" ObjectName="String" Required="false" Type="String"/>
+<n1:Field Collections="false" Description="出生日期" Name="Birthday" ObjectName="DateTime" Required="false" Type="DateTime"/>
+<n1:Field Collections="false" Description="性别" Dictionary="Gender" Name="Gender" ObjectName="Integer" Required="false" Type="Integer"/>
+<n1:Field Collections="false" Description="地址" Dictionary="_TextArea" Name="Address" ObjectName="String" Required="false" Type="String"/>
+<n1:Field Collections="false" Description="电话" Name="Phone" ObjectName="String" Required="false" Type="String"/>
+<n1:Field Collections="false" Description="微信号" Name="Wchat" ObjectName="String" Required="false" Type="String"/>
+<n1:Field Collections="false" Description="QQ号" Name="QQ" ObjectName="String" Required="false" Type="String"/>
+<n1:Field Collections="false" Description="照片" Dictionary="_Image" Name="Photo" ObjectName="String" Required="false" Type="String"/>
+<n1:Field Collections="false" Description="附件" Dictionary="_File" Name="File1" ObjectName="String" Required="false" Type="String"/>
 </Fields>
 </n1:Entity>
 </Controls>
