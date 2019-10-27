@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><Mapper xmlns:n1="org.polariscode.plugin.web.springboot.mapper" Database="DB" Description="">
+<View>
+<Controls>
+<n1:Update Height="24" Name="createUser" SQL="Create Table User(&#10;   ID INTEGER  PRIMARY KEY   AUTOINCREMENT  NOT NULL,&#10;   Name TEXT NOT NULL,&#10;   Password TEXT,&#10;   BirthDay Date ,&#10;   Gender INTEGER NOT NULL,&#10;   ADDRESS        CHAR(50),&#10;   Phone TEXT,&#10;   Email TEXT,&#10;   Wchat TEXT,&#10;   QQ TEXT,&#10;   Photo   TEXT&#10;);" Width="160" X="95" Y="110">
+<Parameters/>
+<Rules/>
+</n1:Update>
+<n1:Select Height="299" MapperEntity="User" Name="getUser" SQL="Select * From User" SelectType="Collections" Width="160" X="335" Y="111">
+<ResultSet/>
+<Parameters/>
+<Rules/>
+</n1:Select>
+</Controls>
+</View>
+</Mapper>

@@ -12,7 +12,7 @@
 <n1:Field Collections="false" Name="RecordCount" ObjectName="Integer" Required="false" Type="Integer"/>
 </Fields>
 </n1:Entity>
-<n1:Entity Height="240" Name="Excel" Width="160" X="521" Y="41">
+<n1:Entity Height="244" Name="Excel" Width="160" X="293" Y="43">
 <Fields>
 <n1:Field Collections="false" Name="A" ObjectName="String" Required="false" Type="String"/>
 <n1:Field Collections="false" Name="B" ObjectName="String" Required="false" Type="String"/>
@@ -40,6 +40,20 @@
 <n1:Field Collections="false" Name="X" ObjectName="String" Required="false" Type="String"/>
 <n1:Field Collections="false" Name="Y" ObjectName="String" Required="false" Type="String"/>
 <n1:Field Collections="false" Name="Z" ObjectName="String" Required="false" Type="String"/>
+</Fields>
+</n1:Entity>
+<n1:Entity Height="284" Name="User" Width="160" X="517" Y="37">
+<Fields>
+<n1:Field Collections="false" Name="ID" ObjectName="Integer" Required="false" Type="Integer"/>
+<n1:Field Collections="false" Name="Name" ObjectName="String" Required="true" Type="String"/>
+<n1:Field Collections="false" Name="Password" ObjectName="String" Required="false" Type="String"/>
+<n1:Field Collections="false" Name="Birthday" ObjectName="DateTime" Required="false" Type="DateTime"/>
+<n1:Field Collections="false" Name="Gender" ObjectName="Integer" Required="false" Type="Integer"/>
+<n1:Field Collections="false" Name="Address" ObjectName="String" Required="false" Type="String"/>
+<n1:Field Collections="false" Name="Phone" ObjectName="String" Required="false" Type="String"/>
+<n1:Field Collections="false" Name="Wchat" ObjectName="String" Required="false" Type="String"/>
+<n1:Field Collections="false" Name="QQ" ObjectName="String" Required="false" Type="String"/>
+<n1:Field Collections="false" Name="Photo" ObjectName="String" Required="false" Type="String"/>
 </Fields>
 </n1:Entity>
 </Controls>
