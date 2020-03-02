@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><Configuration>
+<Port>8080</Port>
+<PackageName>org.polariscode.samples</PackageName>
+<jwtSecret>PolarisCode</jwtSecret>
+<jwtHeader>token</jwtHeader>
+<jwtExpire>3600</jwtExpire>
+<Do>false</Do>
+<SSL>false</SSL>
+<SslFile/>
+<SslPassword/>
+</Configuration>
