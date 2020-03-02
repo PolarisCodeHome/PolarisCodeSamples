@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><View xmlns:n1="org.polariscode.plugin.MobileApp.Models" xmlns:n2="org.polariscode.plugin.MobileApp.Action" Comment="" Description="">
+<View>
+<Controls/>
+</View>
+<Model>
+<Controls>
+<n1:Timer CycleTime="0" DelayTime="3000" Description="3秒钟后跳转到首页" Height="32" Name="mainTimer" Width="32" X="300" Y="100">
+<Command>
+<Controls>
+<n2:JumpPage Name="jumpPage1" Page="Home"/>
+</Controls>
+</Command>
+</n1:Timer>
+</Controls>
+</Model>
+</View>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><Configuration>
+<PackageName>com.example.App</PackageName>
+<AppName>App</AppName>
+<NeedLogin>false</NeedLogin>
+<KeystoreFile/>
+<KeystorePassword/>
+</Configuration>
