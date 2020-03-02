@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><Mapper xmlns:n1="org.polariscode.plugin.web.springboot.mapper" xmlns:n2="org.polariscode.plugin.web.springboot.model" Database="DB" Description="">
 <View>
 <Controls>
-<n1:Update Height="24" Name="createUser" SQL="Create Table User(&#10;   ID INTEGER  PRIMARY KEY   AUTOINCREMENT  NOT NULL,&#10;   Name TEXT NOT NULL,&#10;   Password TEXT,&#10;   BirthDay Date ,&#10;   Gender INTEGER NOT NULL,&#10;   ADDRESS        CHAR(50),&#10;   Phone TEXT,&#10;   Email TEXT,&#10;   Wchat TEXT,&#10;   QQ TEXT,&#10;   Photo   TEXT,&#10;   File1  TEXT&#10;);" Width="160" X="68" Y="117">
+<n1:Update Height="24" Name="createUser" SQL="Create Table User(&#10;   ID INTEGER  PRIMARY KEY   AUTOINCREMENT  NOT NULL,&#10;   Name TEXT NOT NULL,&#10;   Password TEXT,&#10;   BirthDay Date ,&#10;   Gender INTEGER NOT NULL,&#10;   ADDRESS        CHAR(50),&#10;   Phone TEXT,&#10;   Email TEXT,&#10;   Wchat TEXT,&#10;   QQ TEXT,&#10;   Photo   TEXT,&#10;   File1  TEXT&#10;);" Width="160" X="67" Y="116">
 <Parameters/>
 <Rules/>
 </n1:Update>
