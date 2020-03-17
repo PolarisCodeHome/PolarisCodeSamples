@@ -1,8 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?><View Comment="" Description="">
-<View>
+<?xml version="1.0" encoding="UTF-8"?><View xmlns:n1="org.polariscode.plugin.MobileApp.Models" Comment="" Description="">
+<View StatusBarBackground="#ffffffff">
 <Controls/>
 </View>
 <Model>
-<Controls/>
+<Controls>
+<n1:Parameter Description="视图参数" Height="240" Width="160" X="39" Y="35">
+<Fields/>
+</n1:Parameter>
+</Controls>
 </Model>
 </View>

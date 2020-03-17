@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><View xmlns:n1="org.polariscode.plugin.MobileApp.Models" xmlns:n2="org.polariscode.plugin.MobileApp.Action" Comment="" Description="">
-<View>
+<View StatusBarBackground="#ffffffff">
 <Controls/>
 </View>
 <Model>
@@ -11,6 +11,9 @@
 </Controls>
 </Command>
 </n1:Timer>
+<n1:Parameter Height="240" Width="160" X="40" Y="34">
+<Fields/>
+</n1:Parameter>
 </Controls>
 </Model>
 </View>
